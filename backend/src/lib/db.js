@@ -1,8 +1,9 @@
 import mongoose from "mongoose";
+import { ENV } from "./env.js";
 
 export const connectDB = async () => {
   try {
-    const { DB_URL } = process.env;
+    const { DB_URL } = ENV;
     if (!DB_URL) throw new Error("DB_URL is not set");
 
     const conc = await mongoose.connect(DB_URL);
