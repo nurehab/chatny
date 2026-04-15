@@ -7,8 +7,11 @@ import {
 } from "../controller/auth.controller.js";
 
 import { protectRoute } from "../middleware/auth.middleware.js";
+import { archjetProtection } from "../middleware/archjet.middleware.js";
 
 const router = express.Router();
+
+router.use(archjetProtection);
 
 router.post("/signup", signup);
 router.post("/login", login);
